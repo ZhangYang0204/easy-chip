@@ -1,0 +1,25 @@
+fortifier:
+  小强化剂:
+
+    intensifySetting:
+      0:
+        #最多给0级芯片放置多少个小强化剂，，必须是大于等于0，不填或填错跳过0的选项
+        slotSize: 4
+        #每个小强化剂提供多少强化概率，必须是大于等于0小于等于1，不填或填错跳过0的选项
+        probability: 0.25
+      1:
+        slotSize: 4
+        probability: 0.25
+      2:
+        slotSize: 4
+        probability: 0.25
+    #这项不填跳过小强化剂
+    itemStack:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3105
+      type: DIRT
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        lore:
+          - '{"extra":[{"text":"小强化剂"}],"text":""}'

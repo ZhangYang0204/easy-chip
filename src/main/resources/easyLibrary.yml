@@ -1,0 +1,11 @@
+
+daoPackage:
+  - "pers/zhangyang/easychip/dao"
+listenerPackage:
+  - "pers/zhangyang/easychip/listener"
+executorPackage:
+  - "pers/zhangyang/easychip/executor"
+yamlPackage:
+  - "pers/zhangyang/easychip/yaml"
+guiButtonHandlerPackage:
+  - "pers/zhangyang/easychip/listener"

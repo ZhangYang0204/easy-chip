@@ -1,0 +1,9 @@
+name: EasyChip
+version: 1.0.0
+main: pers.zhangyang.easychip.EasyChip
+api-version: 1.13
+commands:
+  EasyChip:
+    aliases: ec
+softdepend:
+  - PlaceholderAPI

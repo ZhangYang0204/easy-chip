@@ -1,0 +1,30 @@
+upgrader:
+  #0代表给0级芯片升级的设置，必须是整数，除了最小的以外，只有等级未达到这里最大值的芯片才可以继续强化和合成
+  0:
+    #是否开启失败损毁，开启损毁意味着强化失败芯片会消失，如果开启损毁，掉级选项将被无视，必填，否则跳过0
+    enableFailureDamage: false
+    #是否开启失败掉级，开启损毁意味着强化失败芯片会掉级，必填，否则跳过0
+    enableFailureDowngrade: false
+
+    #成功强化指令哪些指令，使commandSender以某些身份执行代码,cmdList的String格式需要为方式:命令，方式有console、self、operator，不符合的将跳过
+    #命令无需加/，此选项可填可不填，支持Papi变量
+    successCommand:
+      - "console:say &a&l玩家%player_name%强化刚刚强化成功，快问问他强化到多少级了！"
+    #成功强化指令哪些指令，使commandSender以某些身份执行代码,cmdList的String格式需要为方式:命令，方式有console、self、operator，不符合的将跳过
+    #命令无需加/，此选项可填可不填，支持Papi变量
+    failureCommand:
+      - "console:say &4&l玩家%player_name%强化刚刚强化0级芯片失败，芯片没有掉级也没有损毁！"
+  1:
+    enableFailureDamage: false
+    enableFailureDowngrade: true
+    successCommand:
+      - "console:say &a&l玩家%player_name%强化刚刚强化成功，快问问他强化到多少级了！"
+    failureCommand:
+      - "console:say &4&l玩家%player_name%强化刚刚强化1级芯片失败，芯片掉级！"
+  2:
+    enableFailureDamage: true
+    enableFailureDowngrade: true
+    successCommand:
+      - "console:say &a&l玩家%player_name%强化刚刚强化成功，快问问他强化到多少级了！"
+    failureCommand:
+      - "console:say &4&l玩家%player_name%强化刚刚强化2级芯片失败，芯片损毁！"

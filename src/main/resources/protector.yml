@@ -1,0 +1,24 @@
+protector:
+  小保护剂:
+    protectSetting:
+      0:
+        #最多给0级芯片放置多少个小保护剂，，必须是大于等于0，不填或填错跳过0的选项
+        slotSize: 1
+        #每个小强化剂提供多少保护概率，必须是大于等于0小于等于1，不填或填错跳过0的选项，必须填成小数形式
+        probability: 1.0
+      1:
+        slotSize: 1
+        probability: 1.0
+      2:
+        slotSize: 1
+        probability: 1.0
+        #这项不填跳过小保护剂
+    itemStack:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3105
+      type: DIRT
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        lore:
+          - '{"extra":[{"text":"小保护剂"}],"text":""}'

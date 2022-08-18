@@ -1,0 +1,13 @@
+completer:
+
+  #当输入了/easyChip后将提示补全以下内容
+  easyChip:
+    - "help"
+    - "reloadPlugin"
+    - "correctYaml"
+    - "openGui"
+    - "openMui"
+    - "generateRandomUuid"
+    - "importChip"
+    - "importProtector"
+    - "importFortifier"
