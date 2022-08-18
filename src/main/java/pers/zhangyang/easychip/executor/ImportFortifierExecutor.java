@@ -20,7 +20,7 @@ public class ImportFortifierExecutor extends ExecutorBase {
 
     @Override
     protected void run() {
-        if (args.length != 1) {
+        if (args.length != 2) {
             return;
         }
 
