@@ -2,15 +2,11 @@ package pers.zhangyang.easychip.listener.mainoptionpage;
 
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
-import pers.zhangyang.easychip.domain.Chip;
-import pers.zhangyang.easychip.domain.ProtectSetting;
 import pers.zhangyang.easychip.domain.Protector;
 import pers.zhangyang.easychip.exception.DuplicateProtectorException;
 import pers.zhangyang.easychip.exception.NotExistProtectorException;
-import pers.zhangyang.easychip.meta.WorkStationMeta;
 import pers.zhangyang.easychip.service.GuiService;
 import pers.zhangyang.easychip.service.impl.GuiServiceImpl;
-import pers.zhangyang.easychip.yaml.ChipYaml;
 import pers.zhangyang.easychip.yaml.MessageYaml;
 import pers.zhangyang.easychip.yaml.ProtectorYaml;
 import pers.zhangyang.easylibrary.base.FiniteInputListenerBase;
@@ -66,43 +62,7 @@ public class PlayerInputAfterClickMainOptionPageDepositProtector extends FiniteI
 
 
         GuiService guiService = (GuiService) new TransactionInvocationHandler(new GuiServiceImpl()).getProxy();
-        WorkStationMeta workStationMeta = guiService.getWorkStation(owner.getUniqueId().toString());
 
-        //检查是不是存入芯片
-        if (workStationMeta.getChipItemStack() == null) {
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistChipWhenDepositProtector");
-            MessageUtil.sendMessageTo(player, list);
-            return;
-        }
-
-
-        //检查是不是超标
-        Integer slotSize = null;
-        if (protector.getProtectSettingSet() != null) {
-            for (ProtectSetting is : protector.getProtectSettingSet()) {
-                Chip chip = ChipYaml.INSTANCE.getChip("chip." + is.getLevel());
-                if (chip != null && chip.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getChipItemStack()))) {
-                    slotSize = is.getSlotSize();
-                    break;
-                }
-
-            }
-        }
-        if (slotSize == null) {
-            MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notSuitableProtector"));
-            return;
-        }
-        if (workStationMeta.getProtectorItemStack() != null && workStationMeta.getProtectorAmount() != null) {
-            if (workStationMeta.getProtectorItemStack().equals(protector.getName()) && workStationMeta.getProtectorAmount() + amount > slotSize) {
-                MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notMoreSpaceWhenDepositProtector"));
-                return;
-            }
-        } else {
-            if (amount > slotSize) {
-                MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notMoreSpaceWhenDepositProtector"));
-                return;
-            }
-        }
 
         //存入
         try {

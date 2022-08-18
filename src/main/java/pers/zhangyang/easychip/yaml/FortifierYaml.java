@@ -5,7 +5,7 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import pers.zhangyang.easychip.domain.Fortifier;
-import pers.zhangyang.easychip.domain.IntensifySetting;
+import pers.zhangyang.easychip.domain.FortifySettingSetting;
 import pers.zhangyang.easylibrary.base.YamlBase;
 
 import java.util.HashSet;
@@ -33,13 +33,13 @@ public class FortifierYaml extends YamlBase {
             if (itemStack == null) {
                 continue;
             }
-            Set<IntensifySetting> intensifySettingSet = new HashSet<>();
+            Set<FortifySettingSetting> fortifySettingSettingSet = new HashSet<>();
 
 
-            ConfigurationSection configurationSection2 = yamlConfiguration.getConfigurationSection("fortifier." + s + ".intensifySetting");
+            ConfigurationSection configurationSection2 = yamlConfiguration.getConfigurationSection("fortifier." + s + ".fortifySetting");
             if (configurationSection2 == null) {
                 Fortifier teleportPoint = new Fortifier(s, itemStack);
-                teleportPoint.setIntensifySettingSet(intensifySettingSet);
+                teleportPoint.setIntensifySettingSet(fortifySettingSettingSet);
                 teleportPointList.add(teleportPoint);
                 continue;
             }
@@ -51,25 +51,25 @@ public class FortifierYaml extends YamlBase {
                     continue;
                 }
                 Integer slotSize;
-                slotSize = getInteger("fortifier." + s + ".intensifySetting." + ss + ".slotSize");
+                slotSize = getInteger("fortifier." + s + ".fortifySetting." + ss + ".slotSize");
 
                 if (slotSize == null || slotSize < 0) {
                     continue;
                 }
                 Double probability;
-                probability = getDouble("fortifier." + s + ".intensifySetting." + ss + ".probability");
+                probability = getDouble("fortifier." + s + ".fortifySetting." + ss + ".probability");
                 if (probability == null || probability < 0 || probability > 1) {
                     continue;
                 }
 
-                IntensifySetting intensifySetting = new IntensifySetting(level, slotSize, probability);
-                intensifySettingSet.add(intensifySetting);
+                FortifySettingSetting fortifySettingSetting = new FortifySettingSetting(level, slotSize, probability);
+                fortifySettingSettingSet.add(fortifySettingSetting);
 
             }
 
 
             Fortifier teleportPoint = new Fortifier(s, itemStack);
-            teleportPoint.setIntensifySettingSet(intensifySettingSet);
+            teleportPoint.setIntensifySettingSet(fortifySettingSettingSet);
             teleportPointList.add(teleportPoint);
 
         }
@@ -82,12 +82,12 @@ public class FortifierYaml extends YamlBase {
         if (itemStack == null) {
             return null;
         }
-        Set<IntensifySetting> intensifySettingSet = new HashSet<>();
+        Set<FortifySettingSetting> fortifySettingSettingSet = new HashSet<>();
 
-        ConfigurationSection configurationSection2 = yamlConfiguration.getConfigurationSection(path + ".intensifySetting");
+        ConfigurationSection configurationSection2 = yamlConfiguration.getConfigurationSection(path + ".fortifySetting");
         if (configurationSection2 == null) {
             Fortifier fortifier = new Fortifier(path.split("\\.")[path.split("\\.").length - 1], itemStack);
-            fortifier.setIntensifySettingSet(intensifySettingSet);
+            fortifier.setIntensifySettingSet(fortifySettingSettingSet);
             return fortifier;
         }
         for (String ss : configurationSection2.getKeys(false)) {
@@ -99,7 +99,7 @@ public class FortifierYaml extends YamlBase {
             }
             Integer slotSize;
             try {
-                slotSize = getInteger(path + ".intensifySetting." + ss + ".slotSize");
+                slotSize = getInteger(path + ".fortifySetting." + ss + ".slotSize");
             } catch (NumberFormatException e) {
                 continue;
             }
@@ -108,7 +108,7 @@ public class FortifierYaml extends YamlBase {
             }
             Double probability;
             try {
-                probability = getDouble(path + ".intensifySetting." + ss + ".probability");
+                probability = getDouble(path + ".fortifySetting." + ss + ".probability");
             } catch (NumberFormatException e) {
                 continue;
             }
@@ -116,14 +116,14 @@ public class FortifierYaml extends YamlBase {
                 continue;
             }
 
-            IntensifySetting intensifySetting = new IntensifySetting(level, slotSize, probability);
-            intensifySettingSet.add(intensifySetting);
+            FortifySettingSetting fortifySettingSetting = new FortifySettingSetting(level, slotSize, probability);
+            fortifySettingSettingSet.add(fortifySettingSetting);
 
         }
 
 
         Fortifier fortifier = new Fortifier(path.split("\\.")[path.split("\\.").length - 1], itemStack);
-        fortifier.setIntensifySettingSet(intensifySettingSet);
+        fortifier.setIntensifySettingSet(fortifySettingSettingSet);
         return fortifier;
     }
 }

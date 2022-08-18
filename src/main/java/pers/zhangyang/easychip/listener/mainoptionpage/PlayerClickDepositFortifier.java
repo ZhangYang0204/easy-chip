@@ -17,5 +17,6 @@ public class PlayerClickDepositFortifier implements Listener {
         Player player = (Player) event.getWhoClicked();
         assert mainOptionPage != null;
         new PlayerInputAfterClickMainOptionPageDepositFortifier(player, mainOptionPage.getOwner(), mainOptionPage);
+
     }
 }

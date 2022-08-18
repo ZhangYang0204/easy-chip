@@ -12,7 +12,7 @@ protector:
       2:
         slotSize: 1
         probability: 1.0
-        #这项不填跳过小保护剂
+    #这项必填，不填跳过小保护剂
     itemStack:
       ==: org.bukkit.inventory.ItemStack
       v: 3105

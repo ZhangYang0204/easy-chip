@@ -2,15 +2,11 @@ package pers.zhangyang.easychip.listener.mainoptionpage;
 
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
-import pers.zhangyang.easychip.domain.Chip;
 import pers.zhangyang.easychip.domain.Fortifier;
-import pers.zhangyang.easychip.domain.IntensifySetting;
 import pers.zhangyang.easychip.exception.DuplicateFortifierException;
 import pers.zhangyang.easychip.exception.NotExistFortifierException;
-import pers.zhangyang.easychip.meta.WorkStationMeta;
 import pers.zhangyang.easychip.service.GuiService;
 import pers.zhangyang.easychip.service.impl.GuiServiceImpl;
-import pers.zhangyang.easychip.yaml.ChipYaml;
 import pers.zhangyang.easychip.yaml.FortifierYaml;
 import pers.zhangyang.easychip.yaml.MessageYaml;
 import pers.zhangyang.easylibrary.base.FiniteInputListenerBase;
@@ -68,44 +64,6 @@ public class PlayerInputAfterClickMainOptionPageDepositFortifier extends FiniteI
 
 
         GuiService guiService = (GuiService) new TransactionInvocationHandler(new GuiServiceImpl()).getProxy();
-
-        WorkStationMeta workStationMeta = guiService.getWorkStation(owner.getUniqueId().toString());
-
-
-        //检查是不是存入芯片
-        if (workStationMeta.getChipItemStack() == null) {
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistChipWhenDepositFortifier");
-            MessageUtil.sendMessageTo(player, list);
-            return;
-        }
-
-        //检查存入的强化剂数量是不是超标了
-        Integer slotSize = null;
-        if (fortifier.getIntensifySettingSet() != null) {
-            for (IntensifySetting is : fortifier.getIntensifySettingSet()) {
-                Chip chip = ChipYaml.INSTANCE.getChip("chip." + is.getLevel());
-                if (chip != null && chip.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getChipItemStack()))) {
-                    slotSize = is.getSlotSize();
-                    break;
-                }
-
-            }
-        }
-        if (slotSize == null) {
-            MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notSuitableFortifier"));
-            return;
-        }
-        if (workStationMeta.getFortifierItemStack() != null && workStationMeta.getFortifierAmount() != null) {
-            if (workStationMeta.getFortifierItemStack().equals(fortifier.getName()) && workStationMeta.getFortifierAmount() + amount > slotSize) {
-                MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notMoreSpaceWhenDepositFortifier"));
-                return;
-            }
-        } else {
-            if (amount > slotSize) {
-                MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notMoreSpaceWhenDepositFortifier"));
-                return;
-            }
-        }
 
 
         //存入

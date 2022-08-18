@@ -14,7 +14,6 @@ public class PlayerClickDepositProtector implements Listener {
 
         MainOptionPage mainOptionPage = (MainOptionPage) event.getInventory().getHolder();
         Player player = (Player) event.getWhoClicked();
-
         assert mainOptionPage != null;
         new PlayerInputAfterClickMainOptionPageDepositProtector(player, mainOptionPage.getOwner(), mainOptionPage);
     }

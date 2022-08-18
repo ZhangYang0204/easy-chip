@@ -2,12 +2,12 @@ package pers.zhangyang.easychip.domain;
 
 import java.util.Objects;
 
-public class IntensifySetting {
+public class FortifySettingSetting {
     private final int level;
     private final int slotSize;
     private final double probability;
 
-    public IntensifySetting(int level, int slotSize, double probability) {
+    public FortifySettingSetting(int level, int slotSize, double probability) {
         this.level = level;
         this.slotSize = slotSize;
         this.probability = probability;
@@ -29,7 +29,7 @@ public class IntensifySetting {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        IntensifySetting that = (IntensifySetting) o;
+        FortifySettingSetting that = (FortifySettingSetting) o;
         return level == that.level && slotSize == that.slotSize && Double.compare(that.probability, probability) == 0;
     }
 

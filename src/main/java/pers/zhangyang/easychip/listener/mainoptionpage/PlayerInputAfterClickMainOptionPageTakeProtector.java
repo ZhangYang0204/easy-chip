@@ -55,12 +55,6 @@ public class PlayerInputAfterClickMainOptionPageTakeProtector extends FiniteInpu
             }
         }
         if (chip == null) {
-            try {
-                guiService.takeProtector(owner.getUniqueId().toString(), amount);
-            } catch (NotExistProtectorException | NotMoreProtectorException e) {
-                e.printStackTrace();
-                return;
-            }
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notExistProtectorWhenTakeProtector"));
             return;
         }

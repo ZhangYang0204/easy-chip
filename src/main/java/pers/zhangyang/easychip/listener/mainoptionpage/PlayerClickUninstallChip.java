@@ -50,22 +50,11 @@ public class PlayerClickUninstallChip implements Listener {
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notEmptyChipWhenUninstallChip"));
             return;
         }
-        //检查是否去除了强化剂
-        if (workStationMeta.getFortifierItemStack() != null) {
-            MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notEmptyFortifierWhenUninstallChip"));
-            return;
-        }
-        //检查是否取出了保护剂
-        if (workStationMeta.getProtectorItemStack() != null) {
-            MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notEmptyProtectorWhenUninstallChip"));
-            return;
-        }
         //检查是否存入物品
         if (workStationMeta.getItemStackItemStack() == null) {
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notExistItemStackWhenUninstallChip"));
             return;
         }
-
 
         ItemStack itemStack = ItemStackUtil.itemStackDeserialize(workStationMeta.getItemStackItemStack());
         ItemMeta itemMeta = itemStack.getItemMeta();

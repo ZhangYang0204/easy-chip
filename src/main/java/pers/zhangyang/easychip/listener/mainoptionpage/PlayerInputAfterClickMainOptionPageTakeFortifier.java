@@ -61,13 +61,6 @@ public class PlayerInputAfterClickMainOptionPageTakeFortifier extends FiniteInpu
             }
         }
         if (chip == null) {
-            try {
-                assert workStationMeta.getFortifierAmount() != null;
-                guiService.takeFortifier(owner.getUniqueId().toString(), workStationMeta.getFortifierAmount());
-            } catch (NotExistFortifierException | NotMoreFortifierException e) {
-                e.printStackTrace();
-                return;
-            }
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notExistFortifierWhenTakeFortifier"));
             return;
         }

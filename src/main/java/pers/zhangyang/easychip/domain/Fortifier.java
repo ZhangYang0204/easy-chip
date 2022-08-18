@@ -10,7 +10,7 @@ import java.util.Set;
 public class Fortifier {
     private final String name;
     private final ItemStack itemStack;
-    private Set<IntensifySetting> intensifySettingSet = new HashSet<>();
+    private Set<FortifySettingSetting> fortifySettingSettingSet = new HashSet<>();
 
     public Fortifier(@NotNull String name, @NotNull ItemStack itemStack) {
         this.name = name;
@@ -27,11 +27,11 @@ public class Fortifier {
     }
 
     @Nullable
-    public Set<IntensifySetting> getIntensifySettingSet() {
-        return intensifySettingSet;
+    public Set<FortifySettingSetting> getIntensifySettingSet() {
+        return fortifySettingSettingSet;
     }
 
-    public void setIntensifySettingSet(@Nullable Set<IntensifySetting> intensifySettingSet) {
-        this.intensifySettingSet = intensifySettingSet;
+    public void setIntensifySettingSet(@Nullable Set<FortifySettingSetting> fortifySettingSettingSet) {
+        this.fortifySettingSettingSet = fortifySettingSettingSet;
     }
 }

@@ -1,7 +1,7 @@
 fortifier:
   小强化剂:
 
-    intensifySetting:
+    fortifySetting:
       0:
         #最多给0级芯片放置多少个小强化剂，，必须是大于等于0，不填或填错跳过0的选项
         slotSize: 4
@@ -13,7 +13,7 @@ fortifier:
       2:
         slotSize: 4
         probability: 0.25
-    #这项不填跳过小强化剂
+    #这项必填，不填跳过小强化剂
     itemStack:
       ==: org.bukkit.inventory.ItemStack
       v: 3105

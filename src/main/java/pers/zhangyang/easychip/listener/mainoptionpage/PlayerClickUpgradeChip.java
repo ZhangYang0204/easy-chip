@@ -55,12 +55,6 @@ public class PlayerClickUpgradeChip implements Listener {
             }
         }
         if (chip == null) {
-            try {
-                guiService.takeChip(onlineOwner.getUniqueId().toString());
-            } catch (NotExistChipException e) {
-                e.printStackTrace();
-                return;
-            }
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notEnoughChipWhenUpgradeChip"));
             return;
         }
@@ -88,6 +82,98 @@ public class PlayerClickUpgradeChip implements Listener {
             return;
         }
 
+        //检查是否强化剂合适
+        Fortifier fortifier = null;
+        for (Fortifier c : FortifierYaml.INSTANCE.listFortifier()) {
+            if (c.getName().equals(workStationMeta.getFortifierItemStack())) {
+                fortifier = c;
+                break;
+            }
+        }
+        if (fortifier != null) {
+            boolean suit = false;
+            if (fortifier.getIntensifySettingSet() != null) {
+                for (FortifySettingSetting i : fortifier.getIntensifySettingSet()) {
+                    if (i.getLevel() == chip.getLevel()) {
+                        suit = true;
+                        break;
+                    }
+                }
+            }
+            if (!suit) {
+                MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notSuitableFortifier"));
+                return;
+            }
+        }
+
+        //检查是否保护剂合适
+        Protector protector = null;
+        for (Protector c : ProtectorYaml.INSTANCE.listProtector()) {
+            if (c.getName().equals(workStationMeta.getProtectorItemStack())) {
+                protector = c;
+                break;
+            }
+        }
+
+        if (protector != null) {
+            boolean suit = false;
+            if (protector.getProtectSettingSet() != null) {
+                for (ProtectSetting i : protector.getProtectSettingSet()) {
+                    if (i.getLevel() == chip.getLevel()) {
+                        suit = true;
+                        break;
+                    }
+                }
+            }
+            if (!suit) {
+                MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notSuitableProtector"));
+                return;
+            }
+        }
+
+
+        //检查存入的强化剂数量是不是超标了
+        if (fortifier != null) {
+            Integer slotSize = null;
+            if (fortifier.getIntensifySettingSet() != null) {
+                for (FortifySettingSetting is : fortifier.getIntensifySettingSet()) {
+                    Chip cc = ChipYaml.INSTANCE.getChip("chip." + is.getLevel());
+                    if (cc != null && cc.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getChipItemStack()))) {
+                        slotSize = is.getSlotSize();
+                        break;
+                    }
+
+                }
+            }
+            assert slotSize != null;
+            if (workStationMeta.getFortifierAmount() != null && workStationMeta.getFortifierAmount() > slotSize) {
+                MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.tooMuchFortifierWhenDepositFortifier"));
+                return;
+
+            }
+        }
+
+        //检查存入的强化剂数量是不是超标了
+        if (protector != null) {
+            Integer slotSize = null;
+            if (protector.getProtectSettingSet() != null) {
+                for (ProtectSetting is : protector.getProtectSettingSet()) {
+                    Chip cc = ChipYaml.INSTANCE.getChip("chip." + is.getLevel());
+                    if (cc != null && cc.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getChipItemStack()))) {
+                        slotSize = is.getSlotSize();
+                        break;
+                    }
+
+                }
+            }
+            assert slotSize != null;
+            if (workStationMeta.getProtectorAmount() != null && workStationMeta.getProtectorAmount() > slotSize) {
+                MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.tooMuchFortifierWhenDepositProtector"));
+                return;
+
+            }
+        }
+
 
         //升级
         Chip preciousChip = null;
@@ -98,20 +184,7 @@ public class PlayerClickUpgradeChip implements Listener {
                 break;
             }
         }
-        Fortifier fortifier = null;
-        for (Fortifier c : FortifierYaml.INSTANCE.listFortifier()) {
-            if (c.getName().equals(workStationMeta.getFortifierItemStack())) {
-                fortifier = c;
-                break;
-            }
-        }
-        Protector protector = null;
-        for (Protector c : ProtectorYaml.INSTANCE.listProtector()) {
-            if (c.getName().equals(workStationMeta.getProtectorItemStack())) {
-                protector = c;
-                break;
-            }
-        }
+
         double protectorPro = 0;
         if (protector != null && workStationMeta.getProtectorAmount() != null) {
             assert protector.getProtectSettingSet() != null;
@@ -126,7 +199,7 @@ public class PlayerClickUpgradeChip implements Listener {
         double fortifierPro = 0;
         if (fortifier != null && workStationMeta.getFortifierAmount() != null) {
             assert fortifier.getIntensifySettingSet() != null;
-            for (IntensifySetting ps : fortifier.getIntensifySettingSet()) {
+            for (FortifySettingSetting ps : fortifier.getIntensifySettingSet()) {
                 if (ps.getLevel() != chip.getLevel()) {
                     continue;
                 }

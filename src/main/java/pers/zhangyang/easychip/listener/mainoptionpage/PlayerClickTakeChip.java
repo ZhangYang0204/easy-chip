@@ -36,7 +36,7 @@ public class PlayerClickTakeChip implements Listener {
             return;
         }
 
-        //检查是否配置文件里有这种芯片，如果没有，删除已存入的内容并且返回
+        //检查是否配置文件里有这种芯片
         Chip chip = null;
         for (Chip c : ChipYaml.INSTANCE.listChip()) {
 
@@ -47,12 +47,6 @@ public class PlayerClickTakeChip implements Listener {
             }
         }
         if (chip == null) {
-            try {
-                guiService.takeChip(mainOptionPage.getOwner().getUniqueId().toString());
-            } catch (NotExistChipException e) {
-                e.printStackTrace();
-                return;
-            }
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notExistChipWhenTakeChip"));
             return;
         }

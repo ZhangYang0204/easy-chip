@@ -31,9 +31,9 @@ public class PlayerClickDepositItemStack implements Listener {
         }
         itemStack.setAmount(1);
 
+
         MainOptionPage mainOptionPage = (MainOptionPage) event.getInventory().getHolder();
         assert mainOptionPage != null;
-
 
         GuiService guiService = (GuiService) new TransactionInvocationHandler(new GuiServiceImpl()).getProxy();
         try {

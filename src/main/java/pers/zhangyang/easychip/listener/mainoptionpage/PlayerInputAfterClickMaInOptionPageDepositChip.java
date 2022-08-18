@@ -5,7 +5,6 @@ import org.bukkit.entity.Player;
 import pers.zhangyang.easychip.domain.Chip;
 import pers.zhangyang.easychip.exception.DuplicateChipException;
 import pers.zhangyang.easychip.exception.NotExistChipException;
-import pers.zhangyang.easychip.meta.WorkStationMeta;
 import pers.zhangyang.easychip.service.GuiService;
 import pers.zhangyang.easychip.service.impl.GuiServiceImpl;
 import pers.zhangyang.easychip.yaml.ChipYaml;
@@ -61,17 +60,6 @@ public class PlayerInputAfterClickMaInOptionPageDepositChip extends FiniteInputL
 
 
         GuiService guiService = (GuiService) new TransactionInvocationHandler(new GuiServiceImpl()).getProxy();
-
-        WorkStationMeta workStationMeta = guiService.getWorkStation(owner.getUniqueId().toString());
-
-        if (workStationMeta.getProtectorItemStack() != null) {
-            MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notEmptyProtectorWhenDepositChip"));
-            return;
-        }
-        if (workStationMeta.getFortifierItemStack() != null) {
-            MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notEmptyFortifierWhenDepositChip"));
-            return;
-        }
 
 
         try {

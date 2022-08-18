@@ -92,19 +92,12 @@ message:
       - "&B&l卸载了芯片"
     upgradeChip:
       - "&B&l你对芯片执行了升级操作"
-    notExistChipWhenDepositProtector:
-      - "&C&l请先存入芯片"
-    notExistChipWhenDepositFortifier:
-      - "&C&l请先存入芯片"
-    notEmptyFortifierWhenUninstallChip:
-      - "&C&l请先取出强化剂再卸载芯片"
-    notEmptyProtectorWhenUninstallChip:
-      - "&C&l请先取出保护剂再卸载芯片"
-    notMoreSpaceWhenDepositProtector:
+
+    tooMuchFortifierWhenDepositProtector:
       - "&C&l达到能存入的保护剂最大值了"
     notSuitableProtector:
       - "&C&l这个保护剂不适合这个级别的芯片"
-    notMoreSpaceWhenDepositFortifier:
+    tooMuchFortifierWhenDepositFortifier:
       - "&C&l达到能存入的强化剂最大值了"
     notSuitableFortifier:
       - "&C&l这个强化剂不适合这个级别的芯片"
@@ -124,10 +117,6 @@ message:
       - "&C&l未存入物品，无法安装"
     notExistChipWhenInstallChip:
       - "&C&l未存入芯片,无法安装"
-    notEmptyProtectorWhenDepositChip:
-      - "&C&l请先取出保护剂，再添加芯片"
-    notEmptyFortifierWhenDepositChip:
-      - "&C&l请先取出强化剂，再添加芯片"
     notEnoughSpaceWhenImportProtector:
       - "&C&l背包没有足够空间了，无法导入"
     notExistProtectorWhenImportProtector:
@@ -169,7 +158,7 @@ message:
     duplicateFortifier:
       - "&c&l已经添加过其他类别的强化剂了"
     duplicateItemStack:
-      - "&c&l已经添加有物品了"
+      - "&c&l已经添加有物品了，请先取出再添加其他的物品"
     notExistChipWhenImportChip:
       - "&c&l不存在的芯片，无法导入"
     notEnoughSpaceWhenImportChip:

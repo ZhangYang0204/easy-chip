@@ -62,8 +62,7 @@ public class PlayerClickInstallChip implements Listener {
             return;
         }
 
-
-        //检查配置文件有没有该芯片，没有的话删除
+        //检查配置文件有没有该芯片
         Chip chip = null;
         for (Chip c : ChipYaml.INSTANCE.listChip()) {
             Chip cc = ChipYaml.INSTANCE.getChip("chip." + c.getLevel());
@@ -73,12 +72,6 @@ public class PlayerClickInstallChip implements Listener {
             }
         }
         if (chip == null) {
-            try {
-                guiService.takeChip(offlinePlayerOwner.getUniqueId().toString());
-            } catch (NotExistChipException e) {
-                e.printStackTrace();
-                return;
-            }
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notExistChipWhenInstallChip"));
             return;
         }
