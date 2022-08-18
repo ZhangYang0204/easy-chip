@@ -1,0 +1,151 @@
+gui:
+
+
+  # the first page of the return button clicked after the execution of the command, the format of way:command, where the way refers to the way of execution, command is the command, the command does not need to add /.
+  # execution methods are operator, console, self, respectively, representing execution as op (to the player op and then execute and then cancel the player op), console execution, self execution
+  #Papi variables are supported
+  firstPageBackCommand:
+    - "self:bs"
+    - "self:cd"
+
+  title:
+    mainOptionPage: "&b&l&nMainOption&e&l(MainOption)"
+
+  button:
+
+    mainOptionPage:
+      back:
+        # indicates the material of the button, to know the material name, please go to https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html查看
+        #If AIR means the relevant button is not displayed and cannot be clicked
+        materialName: "BARRIER"
+
+        #Indicates the name of the button
+        displayName: "&b&l&n return"
+
+        # indicates the description of the button, variables that can be used in lore, except those enclosed in {()}, can be used in displayName
+        lore:
+          - "&b&lClick to return"
+
+        # indicates the amount
+        amount: 1
+
+        # indicates flags, to know what can be hidden, go to https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/ItemFlag.html
+        itemFlag:
+          - "HIDE_DESTROYS"
+
+        #which model data to use 1.12 and previous versions do not support this
+        customModelData: [ ]
+      upgradeChip:
+        materialName: "ANVIL"
+        displayName: "&b&l&n upgradeChip"
+        lore:
+          - "&a&lProbability of reinforcement success: &F{fortify_probability}"
+          - "&c&lProbability of reinforcement protection: &F{protect_probability}"
+          - "&b&lClick to upgrade chip"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: []
+      depositFortifier:
+        materialName: "IRON_INGOT"
+        displayName: "&b&l&nDeposit fortification"
+        lore:
+          - "&a&l has deposited fortifier name: &F{fortifier_name}"
+          - "&c&lDeposited fortifier quantity: &F{fortifier_amount}"
+          - "&b&lClick to deposit fortifier"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: []
+      takeFortifier:
+        materialName: "IRON_BLOCK"
+        displayName: "&b&l&nTake out reinforcers"
+        lore:
+          - "&a&l has deposited fortifier name: &F{fortifier_name}"
+          - "&c&lDeposited fortifier quantity: &F{fortifier_amount}"
+          - "&b&lClicked to remove fortifier"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: []
+      depositProtector:
+        materialName: "DIAMOND"
+        displayName: "&b&l&nDeposit Protector"
+        lore:
+          - "&a&l deposited Protector name: &F{protector_name}"
+          - "&c&lDeposited Protector Quantity: &F{protector_amount}"
+          - "&b&lClick to deposit Protector"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: []
+      takeProtector:
+        materialName: "DIAMOND_BLOCK"
+        displayName: "&b&l&nTake out Protector"
+        lore:
+          - "&a&l has deposited Protector name: &F{protector_name}"
+          - "&c&lDeposited Protector Quantity: &F{protector_amount}"
+          - "&b&lClicked to remove Protector"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: []
+      takeChip:
+        materialName: "REDSTONE_BLOCK"
+        displayName: "&b&l&n take out chip"
+        lore:
+          - "&a&l has deposited chip level: &F{chip_level}"
+          - "&b&lClick to remove chip"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: []
+      depositChip:
+        materialName: "REDSTONE"
+        displayName: "&b&l&n depositChip"
+        lore:
+          - "&a&lDepositedChipLevel: &F{chip_level}"
+          - "&b&lClick me to deposit a chip"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: []
+      installChip:
+        materialName: "ENCHANTING_TABLE"
+        displayName: "&b&l&ninstallChip"
+        lore:
+          - "&b&lclick me to install chip"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: []
+      uninstallChip:
+        materialName: "IRON_SWORD"
+        displayName: "&b&l&n uninstallChip"
+        lore:
+          - "&b&lUninstallChip for deposited items"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: []
+      takeItemStack:
+        materialName: "coal_block"
+        displayName: "&b&l&n take out item"
+        lore:
+          - "&b&lTakeOutItem"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: []
+      depositItemStack:
+        materialName: "COAL"
+        displayName: "&b&l&nDeposit item"
+        lore:
+          - "&b&l handheld item deposited to be installed"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: []
+
+
+

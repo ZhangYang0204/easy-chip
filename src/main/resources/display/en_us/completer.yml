@@ -1,6 +1,6 @@
 completer:
 
-  #当输入了/easyChip后将提示补全以下内容
+  #When you type /easyChip you will be prompted to complete the following
   easyChip:
     - "help"
     - "reloadPlugin"
@@ -13,16 +13,16 @@ completer:
     - "importProtector"
     - "importFortifier"
   easyChipOpenMui:
-    - "<玩家名字>"
+    - "<Player Name>"
   easyChipImportChip:
-    - "<等级>"
+    - "<rank>"
   easyChipImportProtector:
-    - "<名字>"
+    - "<name>"
   easyChipImportFortifier:
-    - "<名字>"
+    - "<name>"
   easyChipImportChip$:
-    - "<数量>"
+    - "<amount>"
   easyChipImportProtector$:
-    - "<数量>"
+    - "<amount>"
   easyChipImportFortifier$:
-    - "<数量>"
+    - "<amount>"

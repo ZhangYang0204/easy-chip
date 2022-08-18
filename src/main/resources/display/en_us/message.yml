@@ -1,0 +1,178 @@
+message:
+
+  #Required, wrong or "", the default value will be used
+  input:
+    cancel: "Cancel"
+
+  component:
+
+    # required, if "" is equal to not filled, this option is used to display the hover box
+    generateRandomUuid: "&b&l click me to copy this random Uuid (1.16 and above to copy)"
+
+  #chat supports Papi variables if the send target is a player
+  chat:
+    failureGetLatestVersion:
+      - "&c&l Failed to get the latest version of EasyChip."
+    notPermission:
+      - "&c&lYou are missing permission &f{permission}."
+    correctYaml:
+      - "&b&lFixed all Yaml files for missing and redundant keys."
+    help:
+      - "&b&l==== help list ===="
+      - "&b&l/EasyChip help View Help"
+      - "&b&l/EasyChip reloadPlugin reload plugin"
+      - "&b&l/EasyChip correctYaml Fix Yaml files"
+      - "&b&l/EasyChip correctDatabase Fix abnormal data inside the database"
+      - "&b&l/EasyChip openGui OpenGui"
+      - "&b&l/EasyChip openMui <player name> Open Mui as the specified player"
+      - "&b&l/EasyChip generateRandomUuid Generate a copy of the Uuid and the backend will also send a message (for easy copying)"
+      - "&b&l/EasyChip importChip <level> <number> Import Chip"
+      - "&b&l/EasyChip importFortifier <name> <quantity> Import fortifier"
+      - "&b&l/EasyChip importProtector <name> <quantity> Import Protector"
+    notifyVersion:
+      - "&b&lThe current version of EasyChip is &f{current_version}, &b&lthe latest version is &f{latest_version}."
+    enablePlugin:
+      - "&a╭━━━╮╱╱╱╱╱╱╱╱╱╭━━━┳╮"
+      - "&a┃╭━━╯╱╱╱╱╱╱╱╱╱┃╭━╮┃┃"
+      - "&a┃╰━━┳━━┳━━┳╮╱╭┫┃╱╰┫╰━┳┳━━╮"
+      - "&a┃╭━━┫╭╮┃━━┫┃╱┃┃┃╱╭┫╭╮┣┫╭╮┃"
+      - "&a┃╰━━┫╭╮┣━━┃╰━╯┃╰━╯┃┃┃┃┃╰╯┃"
+      - "&a╰━━━┻╯╰┻━━┻━╮╭┻━━━┻╯╰┻┫╭━╯"
+    disablePlugin:
+      - "&c╭━━━╮╱╱╱╱╱╱╱╱╱╭━━━┳╮"
+      - "&c┃╭━━╯╱╱╱╱╱╱╱╱╱┃╭━╮┃┃"
+      - "&c┃╰━━┳━━┳━━┳╮╱╭┫┃╱╰┫╰━┳┳━━╮"
+      - "&c┃╭━━┫╭╮┃━━┫┃╱┃┃┃╱╭┫╭╮┣┫╭╮┃"
+      - "&c┃╰━━┫╭╮┣━━┃╰━╯┃╰━╯┃┃┃┃┃╰╯┃"
+      - "&c╰━━━┻╯╰┻━━┻━╮╭┻━━━┻╯╰┻┫╭━╯"
+    invalidNumber:
+      - "&C&l invalid number"
+    notItemInMainHand:
+      - "&c&l no item in main hand"
+    notOnline:
+      - "&c&l player is not online"
+
+    howToDepositChip:
+      - "&B&lEnter the level of the chip to deposit, enter &F to cancel &B&l to cancel"
+    howToDepositFortifier:
+      - "&B&lEnter the fortifier name and quantity in order to complete the operation (enter once after each entry), enter &F to cancel &B&l to cancel"
+    howToDepositProtector:
+      - "&B&lEnter the protector name and quantity in order to complete the operation (enter once after each entry), enter &F to cancel &B&l to cancel"
+    howToTakeFortifier:
+      - "&B&lEnter the quantity to complete the operation, enter &F to cancel &B&l to cancel"
+    howToTakeProtector:
+      - "&B&lEnter quantity to complete operation, enter &FCancel&B&lCancel"
+
+    correctDatabase:
+      - "&B&l corrected the database"
+    depositChip:
+      - "&b&l deposited chip"
+    depositItemStack:
+      - "&b&l deposited item"
+    reloadPlugin:
+      - "&b&l reloaded successfully."
+    depositFortifier:
+      - "&b&l deposited fortifier"
+    depositProtector:
+      - "&B&l deposited Protector"
+    takeChip:
+      - "&B&l took out the chip"
+    takeItemStack:
+      - "&B&l removed the item"
+    takeProtector:
+      - "&B&l took out Protector"
+    takeFortifier:
+      - "&B&l took out Protector"
+    importFortifier:
+      - "&B&l imported fortifier"
+    importProtector:
+      - "&B&l imported Protector"
+    installChip:
+      - "&B&l installed Chip"
+    uninstallChip:
+      - "&B&l uninstalled the chip"
+    upgradeChip:
+      - "&B&lYou performed an upgrade operation on the chip"
+
+    tooMuchFortifierWhenDepositProtector:
+      - "&C&l reached the maximum amount of protector that can be deposited"
+    notSuitableProtector:
+      - "&C&l This protector is not suitable for this level of chip"
+    tooMuchFortifierWhenDepositFortifier:
+      - "&C&l reached the maximum amount of fortifier that can be deposited"
+    notSuitableFortifier:
+      - "&C&l This fortifier is not suitable for this level of chip"
+    notExistUpgraderWhenUpgradeChip:
+      - "&C&l has not set the upgrader, can't be enhanced, please contact rotten"
+    notNextChipWhenUpgradeChip:
+      - "&C&l doesn't exist next level, can't upgrade anymore"
+    notEnoughChipWhenUpgradeChip:
+      - "&C&l doesn't store a chip, can't upgrade"
+    notEmptyChipWhenInstallChip:
+      - "&C&l item already has a chip installed, can't install another chip"
+    notExistItemStackWhenUninstallChip:
+      - "&C&l item not deposited, cannot uninstall"
+    notEmptyChipWhenUninstallChip:
+      - "&C&l has stored chips, can't uninstall, please remove the stored chips first"
+    notExistItemStackWhenInstallChip:
+      - "&C&l has not stored item, can't install"
+    notExistChipWhenInstallChip:
+      - "&C&l did not deposit the chip, could not install"
+    notEnoughSpaceWhenImportProtector:
+      - "&C&l backpack does not have enough space, can't import"
+    notExistProtectorWhenImportProtector:
+      - "&C&l nonexistent protector, can't import"
+    notEnoughSpaceWhenImportFortifier:
+      - "&C&l backpack doesn't have enough space, can't import"
+    notExistFortifierWhenImportFortifier:
+      - "&C&l nonexistent fortifier, can't import"
+    notEnoughChipWhenDepositChip:
+      - "&C&l did not have enough chips deposited"
+    notEnoughProtector:
+      - "&C&l did not have enough protectors deposited"
+    notEnoughFortifier:
+      - "&C&l notEnoughFortifier deposited"
+    notEnoughSpaceWhenTakeItemStack:
+      - "&c&lInsufficient space in backpack to take item out"
+    notMoreProtector:
+      - "&C&l Insufficient Protector to remove"
+    notExistProtectorWhenTakeProtector:
+      - "&C&l didn't use to store protectant, can't take out"
+    notEnoughSpaceWhenTakeProtector:
+      - "&C&l not enough space, can't take out"
+    notEnoughSpaceWhenTakeFortifier:
+      - "&C&l insufficient space to take out"
+    notMoreFortifier:
+      - "&C&l does not have this much fortifier to take out"
+    notExistFortifierWhenTakeFortifier:
+      - "&C&l does not exist fortifier to take out"
+    notExistItemStackWhenTakeItemStack:
+      - "&C&l nonexistent item"
+    notExistChipWhenTakeChip:
+      - "&C&l nonexistent chip, can't take it out, didn't put it in or is it damaged?"
+    duplicateProtector:
+      - "&c&l has added other types of protectors"
+    notExistProtectorWhenDepositProtector:
+      - "&c&l does not exist a protector with this name"
+    notExistFortifierWhenDepositFortifier:
+      - "&c&l no such protector exists"
+    duplicateFortifier:
+      - "&c&l has already added other categories of fortifier"
+    duplicateItemStack:
+      - "&c&l already has an item added, please remove it before adding another item"
+    notExistChipWhenImportChip:
+      - "&c&l does not exist chip, can't import"
+    notEnoughSpaceWhenImportChip:
+      - "&c&l insufficient backpack space"
+    importChip:
+      - "&c&l imported chips successfully"
+    notExistChipWhenDepositChip:
+      - "&c&l no chips in hand"
+    duplicateChip:
+      - "&c&l has already added the chip"
+    notEnoughSpaceWhenTakeChip:
+      - "&c&l backpack space is insufficient to remove the chip"
+
+
+
+
