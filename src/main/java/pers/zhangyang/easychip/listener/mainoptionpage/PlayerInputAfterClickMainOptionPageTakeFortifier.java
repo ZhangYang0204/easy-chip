@@ -13,6 +13,7 @@ import pers.zhangyang.easychip.yaml.FortifierYaml;
 import pers.zhangyang.easychip.yaml.MessageYaml;
 import pers.zhangyang.easylibrary.base.FiniteInputListenerBase;
 import pers.zhangyang.easylibrary.base.GuiPage;
+import pers.zhangyang.easylibrary.util.ItemStackUtil;
 import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.util.PlayerUtil;
 import pers.zhangyang.easylibrary.util.TransactionInvocationHandler;
@@ -55,7 +56,7 @@ public class PlayerInputAfterClickMainOptionPageTakeFortifier extends FiniteInpu
         //检查配置文件是不是有这个强化剂
         Fortifier chip = null;
         for (Fortifier c : FortifierYaml.INSTANCE.listFortifier()) {
-            if (c.getName().equals(workStationMeta.getFortifierItemStack())) {
+            if (c.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getFortifierItemStack()))) {
                 chip = c;
                 break;
             }

@@ -70,6 +70,7 @@ public class PlayerClickTakeChip implements Listener {
         PlayerUtil.addItem(player, chip.getItemStack(), chip.getItemStack().getAmount());
 
 
+        mainOptionPage.refresh();
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.takeChip"));
     }
 }

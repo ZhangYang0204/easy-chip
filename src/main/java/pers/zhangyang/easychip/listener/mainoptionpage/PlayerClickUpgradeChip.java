@@ -63,8 +63,7 @@ public class PlayerClickUpgradeChip implements Listener {
         //检查是不是有下一级芯片，否则不让强化
         Chip nextChip = null;
         for (Chip c : ChipYaml.INSTANCE.listChip()) {
-            Chip cc = ChipYaml.INSTANCE.getChip("chip." + (c.getLevel() - 1));
-            if (cc != null && cc.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getChipItemStack()))) {
+            if (c.getLevel()-1==chip.getLevel()){
                 nextChip = c;
                 break;
             }
@@ -84,10 +83,12 @@ public class PlayerClickUpgradeChip implements Listener {
 
         //检查是否强化剂合适
         Fortifier fortifier = null;
-        for (Fortifier c : FortifierYaml.INSTANCE.listFortifier()) {
-            if (c.getName().equals(workStationMeta.getFortifierItemStack())) {
-                fortifier = c;
-                break;
+        if (workStationMeta.getFortifierItemStack()!=null) {
+            for (Fortifier c : FortifierYaml.INSTANCE.listFortifier()) {
+                if (c.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getFortifierItemStack()))) {
+                    fortifier = c;
+                    break;
+                }
             }
         }
         if (fortifier != null) {
@@ -108,13 +109,14 @@ public class PlayerClickUpgradeChip implements Listener {
 
         //检查是否保护剂合适
         Protector protector = null;
-        for (Protector c : ProtectorYaml.INSTANCE.listProtector()) {
-            if (c.getName().equals(workStationMeta.getProtectorItemStack())) {
-                protector = c;
-                break;
+        if (workStationMeta.getProtectorItemStack()!=null) {
+            for (Protector c : ProtectorYaml.INSTANCE.listProtector()) {
+                if (c.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getProtectorItemStack()))) {
+                    protector = c;
+                    break;
+                }
             }
         }
-
         if (protector != null) {
             boolean suit = false;
             if (protector.getProtectSettingSet() != null) {
@@ -137,8 +139,7 @@ public class PlayerClickUpgradeChip implements Listener {
             Integer slotSize = null;
             if (fortifier.getIntensifySettingSet() != null) {
                 for (FortifySettingSetting is : fortifier.getIntensifySettingSet()) {
-                    Chip cc = ChipYaml.INSTANCE.getChip("chip." + is.getLevel());
-                    if (cc != null && cc.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getChipItemStack()))) {
+                    if (is.getLevel()==chip.getLevel()) {
                         slotSize = is.getSlotSize();
                         break;
                     }
@@ -158,8 +159,7 @@ public class PlayerClickUpgradeChip implements Listener {
             Integer slotSize = null;
             if (protector.getProtectSettingSet() != null) {
                 for (ProtectSetting is : protector.getProtectSettingSet()) {
-                    Chip cc = ChipYaml.INSTANCE.getChip("chip." + is.getLevel());
-                    if (cc != null && cc.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getChipItemStack()))) {
+                    if (is.getLevel()==chip.getLevel()) {
                         slotSize = is.getSlotSize();
                         break;
                     }
@@ -170,7 +170,6 @@ public class PlayerClickUpgradeChip implements Listener {
             if (workStationMeta.getProtectorAmount() != null && workStationMeta.getProtectorAmount() > slotSize) {
                 MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.tooMuchFortifierWhenDepositProtector"));
                 return;
-
             }
         }
 
@@ -178,8 +177,7 @@ public class PlayerClickUpgradeChip implements Listener {
         //升级
         Chip preciousChip = null;
         for (Chip c : ChipYaml.INSTANCE.listChip()) {
-            Chip cc = ChipYaml.INSTANCE.getChip("chip." + (c.getLevel() + 1));
-            if (cc != null && cc.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getChipItemStack()))) {
+            if (c.getLevel()+1==chip.getLevel()){
                 preciousChip = c;
                 break;
             }
@@ -254,14 +252,15 @@ public class PlayerClickUpgradeChip implements Listener {
             if (workStationMeta.getFortifierItemStack() != null && workStationMeta.getFortifierAmount() != null) {
                 guiService.takeFortifier(mainOptionPage.getOwner().getUniqueId().toString(), workStationMeta.getFortifierAmount());
             }
-            if (workStationMeta.getProtectorItemStack() != null && workStationMeta.getFortifierAmount() != null) {
-                guiService.takeProtector(mainOptionPage.getOwner().getUniqueId().toString(), workStationMeta.getFortifierAmount());
+            if (workStationMeta.getProtectorItemStack() != null && workStationMeta.getProtectorAmount() != null) {
+                guiService.takeProtector(mainOptionPage.getOwner().getUniqueId().toString(), workStationMeta.getProtectorAmount());
             }
         } catch (NotExistFortifierException | NotMoreFortifierException | NotExistProtectorException | NotMoreProtectorException e) {
             e.printStackTrace();
             return;
         }
 
+        mainOptionPage.refresh();
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.upgradeChip"));
 
 

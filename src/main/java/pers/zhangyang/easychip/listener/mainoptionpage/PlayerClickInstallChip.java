@@ -118,6 +118,7 @@ public class PlayerClickInstallChip implements Listener {
             return;
         }
 
+        mainOptionPage.refresh();
 
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.installChip"));
 

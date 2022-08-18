@@ -13,6 +13,7 @@ import pers.zhangyang.easychip.yaml.MessageYaml;
 import pers.zhangyang.easychip.yaml.ProtectorYaml;
 import pers.zhangyang.easylibrary.base.FiniteInputListenerBase;
 import pers.zhangyang.easylibrary.base.GuiPage;
+import pers.zhangyang.easylibrary.util.ItemStackUtil;
 import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.util.PlayerUtil;
 import pers.zhangyang.easylibrary.util.TransactionInvocationHandler;
@@ -49,7 +50,7 @@ public class PlayerInputAfterClickMainOptionPageTakeProtector extends FiniteInpu
         //配置文件是不是有
         Protector chip = null;
         for (Protector c : ProtectorYaml.INSTANCE.listProtector()) {
-            if (c.getName().equals(workStationMeta.getProtectorItemStack())) {
+            if (c.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getProtectorItemStack()))) {
                 chip = c;
                 break;
             }

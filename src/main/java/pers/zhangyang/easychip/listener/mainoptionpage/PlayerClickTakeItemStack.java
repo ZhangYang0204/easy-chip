@@ -51,6 +51,8 @@ public class PlayerClickTakeItemStack implements Listener {
         }
 
         PlayerUtil.addItem(player, itemStack, 1);
+
+        mainOptionPage.refresh();
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.takeItemStack"));
     }
 }

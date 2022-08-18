@@ -42,6 +42,7 @@ public class PlayerClickDepositItemStack implements Listener {
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.duplicateItemStack"));
             return;
         }
+        mainOptionPage.refresh();
 
         PlayerUtil.removeItem(player, itemStack, 1);
 

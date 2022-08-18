@@ -84,7 +84,7 @@ message:
       - "&B&l取出了强化剂"
     importFortifier:
       - "&B&l导入了强化剂"
-    importProtecotr:
+    importProtector:
       - "&B&l导入了保护剂"
     installChip:
       - "&B&l安装了芯片"

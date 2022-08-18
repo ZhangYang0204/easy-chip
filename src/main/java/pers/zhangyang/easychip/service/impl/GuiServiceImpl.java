@@ -77,7 +77,7 @@ public class GuiServiceImpl implements GuiService {
         }
 
         workStationMeta.setFortifierAmount(workStationMeta.getFortifierAmount() - amount);
-        if (workStationMeta.getFortifierAmount() == 0) {
+        if (workStationMeta.getFortifierAmount() <= 0) {
             workStationMeta.setFortifierItemStack(null);
             workStationMeta.setFortifierAmount(null);
         }
@@ -145,7 +145,7 @@ public class GuiServiceImpl implements GuiService {
             throw new NotMoreProtectorException();
         }
         workStationMeta.setProtectorAmount(workStationMeta.getProtectorAmount() - amount);
-        if (workStationMeta.getProtectorAmount() == 0) {
+        if (workStationMeta.getProtectorAmount() <= 0) {
             workStationMeta.setProtectorAmount(null);
             workStationMeta.setProtectorItemStack(null);
         }

@@ -38,6 +38,8 @@ gui:
         materialName: "ANVIL"
         displayName: "&b&l&n升级芯片"
         lore:
+          - "&a&l强化成功概率：&F{fortify_probability}"
+          - "&c&l强化保护概率：&F{protect_probability}"
           - "&b&l点击升级芯片"
         amount: 1
         itemFlag:
@@ -47,6 +49,8 @@ gui:
         materialName: "IRON_INGOT"
         displayName: "&b&l&n存入强化剂"
         lore:
+          - "&a&l已存入强化剂名字：&F{fortifier_name}"
+          - "&c&l已存入强化剂数量：&F{fortifier_amount}"
           - "&b&l点击存入强化剂"
         amount: 1
         itemFlag:
@@ -56,6 +60,8 @@ gui:
         materialName: "IRON_BLOCK"
         displayName: "&b&l&n取出强化剂"
         lore:
+          - "&a&l已存入强化剂名字：&F{fortifier_name}"
+          - "&c&l已存入强化剂数量：&F{fortifier_amount}"
           - "&b&l点击取出强化剂"
         amount: 1
         itemFlag:
@@ -65,6 +71,8 @@ gui:
         materialName: "DIAMOND"
         displayName: "&b&l&n存入保护剂"
         lore:
+          - "&a&l已存入保护剂名字：&F{protector_name}"
+          - "&c&l已存入保护剂数量：&F{protector_amount}"
           - "&b&l点击存入保护剂"
         amount: 1
         itemFlag:
@@ -74,6 +82,8 @@ gui:
         materialName: "DIAMOND_BLOCK"
         displayName: "&b&l&n取出保护剂"
         lore:
+          - "&a&l已存入保护剂名字：&F{protector_name}"
+          - "&c&l已存入保护剂数量：&F{protector_amount}"
           - "&b&l点击取出保护剂"
         amount: 1
         itemFlag:
@@ -83,6 +93,7 @@ gui:
         materialName: "REDSTONE_BLOCK"
         displayName: "&b&l&n取出芯片"
         lore:
+          - "&a&l已存入芯片等级：&F{chip_level}"
           - "&b&l点击取出芯片"
         amount: 1
         itemFlag:
@@ -92,6 +103,7 @@ gui:
         materialName: "REDSTONE"
         displayName: "&b&l&n存入芯片"
         lore:
+          - "&a&l已存入芯片等级：&F{chip_level}"
           - "&b&l点击我存入芯片"
         amount: 1
         itemFlag:

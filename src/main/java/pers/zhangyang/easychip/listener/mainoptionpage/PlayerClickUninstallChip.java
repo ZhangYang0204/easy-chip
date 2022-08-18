@@ -113,6 +113,7 @@ public class PlayerClickUninstallChip implements Listener {
         }
 
 
+        mainOptionPage.refresh();
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.uninstallChip"));
 
 
