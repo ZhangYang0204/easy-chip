@@ -56,7 +56,7 @@ public class ImportChipExecutor extends ExecutorBase {
 
 
         ItemStack itemStack = chip.getItemStack().clone();
-        if (PlayerUtil.checkSpace(player, itemStack) < itemStack.getAmount()) {
+        if (PlayerUtil.checkSpace(player, itemStack) < itemStack.getAmount()*amount) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughSpaceWhenImportChip");
             MessageUtil.sendMessageTo(sender, list);
             return;

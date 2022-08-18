@@ -46,7 +46,7 @@ public class ImportFortifierExecutor extends ExecutorBase {
 
 
         ItemStack itemStack = fortifier.getItemStack().clone();
-        if (PlayerUtil.checkSpace(player, itemStack) < itemStack.getAmount()) {
+        if (PlayerUtil.checkSpace(player, itemStack) < itemStack.getAmount()*amount) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughSpaceWhenImportFortifier");
             MessageUtil.sendMessageTo(sender, list);
             return;
