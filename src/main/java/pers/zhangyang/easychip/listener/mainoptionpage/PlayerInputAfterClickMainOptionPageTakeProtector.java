@@ -61,7 +61,7 @@ public class PlayerInputAfterClickMainOptionPageTakeProtector extends FiniteInpu
         }
 
 
-        if (PlayerUtil.checkSpace(player, chip.getItemStack()) < chip.getItemStack().getAmount()) {
+        if (PlayerUtil.checkSpace(player, chip.getItemStack()) < chip.getItemStack().getAmount()*amount) {
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notEnoughSpaceWhenTakeProtector"));
             return;
         }
@@ -73,7 +73,7 @@ public class PlayerInputAfterClickMainOptionPageTakeProtector extends FiniteInpu
             return;
         }
         ItemStack chipItemStack = chip.getItemStack();
-        PlayerUtil.addItem(player, chipItemStack, chipItemStack.getAmount());
+        PlayerUtil.addItem(player, chipItemStack, chip.getItemStack().getAmount()*amount);
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.takeProtector"));
 
 

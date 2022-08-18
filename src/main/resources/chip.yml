@@ -1,8 +1,8 @@
 chip:
   #这里必须是整数，代表芯片等级，一个物品只能安装一个芯片，可以安装在任何物品上，芯片是判断数量的
   #如果下面的itemStack的数量是5，那么数量不是5的相同物品的物品堆不叫作芯片
-  0:
-    #芯片物品，如果此项不填，则跳过0
+  1:
+    #芯片物品，如果此项不填，则跳过1
     itemStack:
       ==: org.bukkit.inventory.ItemStack
       v: 3105
@@ -11,11 +11,11 @@ chip:
         ==: ItemMeta
         meta-type: UNSPECIFIC
         lore:
-          - '{"extra":[{"text":"0级芯片"}],"text":""}'
+          - '{"extra":[{"text":"1级芯片"}],"text":""}'
 
     #安装芯片会给物品增加到描述，卸载后会消失
     additionalLore:
-      - "&c已安装强化芯片，芯片等级[0]"
+      - "&c已安装强化芯片，芯片等级[1]"
 
     #装配此芯片的效果，格式为属性:UUID:属性修饰符名字:属性修饰符值:属性修饰符操作:属性修饰符槽位
     #属性修饰符的名字可以随便起名
@@ -27,6 +27,7 @@ chip:
     #安装芯片的原理是给目标物品的属性添加下面的属性修饰符和额外描述，额外描述会添加在末尾，并在该物品中添加一个隐藏信息
     #卸载芯片的原理是根据下面的属性修饰符的Uuid删除该物品上的属性修饰符，同时从lore中删除和additionalLore中相同的字符串，所以Uuid必须唯一！！！
     #判断是否安装过芯片的原理是判断是否含有安装时添加的隐藏信息
+    #如果一个武器出现了2个相同UUID的属性修饰，则会跳过其中一个
     effect:
       #代表增加攻击属性，属性修饰符的名字是攻击加成，值是1，值是作用方式是添加，意思就是攻击伤害加1，当装备拿在手中的时候生效，填错的项会自动略过effect
       - "GENERIC_ATTACK_DAMAGE:123e4567-e89b-12d3-a456-426655440001:攻击加成:1:ADD_NUMBER:HAND"
@@ -34,24 +35,12 @@ chip:
       - "GENERIC_ATTACK_DAMAGE:123e4567-e89b-12d3-a456-426655440002:攻击加成:0.2:MULTIPLY_SCALAR_1:HEAD"
       #代表增加攻击属性，属性修饰符的名字是攻击加成，值是0.2，值是作用方式是增加百分比，意思就是攻击伤害变为原来的2.2倍，当装备拿在手中的时候生效，填错的项会自动略过effect
       - "GENERIC_ATTACK_DAMAGE:123e4567-e89b-12d3-a456-426655440003:攻击加成:2.2:MULTIPLY_SCALAR_1:HAND"
-  1:
-    itemStack:
-      ==: org.bukkit.inventory.ItemStack
-      v: 3105
-      type: DIRT
-      meta:
-        ==: ItemMeta
-        meta-type: UNSPECIFIC
-        lore:
-          - '{"extra":[{"text":"1级芯片"}],"text":""}'
-    additionalLore:
-      - "&c已安装强化芯片，芯片等级[1]"
-    effect: []
   2:
     itemStack:
       ==: org.bukkit.inventory.ItemStack
       v: 3105
       type: DIRT
+      amount: 2
       meta:
         ==: ItemMeta
         meta-type: UNSPECIFIC
@@ -65,6 +54,7 @@ chip:
       ==: org.bukkit.inventory.ItemStack
       v: 3105
       type: DIRT
+      amount: 3
       meta:
         ==: ItemMeta
         meta-type: UNSPECIFIC
@@ -72,4 +62,18 @@ chip:
           - '{"extra":[{"text":"3级芯片"}],"text":""}'
     additionalLore:
       - "&c已安装强化芯片，芯片等级[3]"
+    effect: []
+  4:
+    itemStack:
+      ==: org.bukkit.inventory.ItemStack
+      v: 3105
+      type: DIRT
+      amount: 4
+      meta:
+        ==: ItemMeta
+        meta-type: UNSPECIFIC
+        lore:
+          - '{"extra":[{"text":"4级芯片"}],"text":""}'
+    additionalLore:
+      - "&c已安装强化芯片，芯片等级[4]"
     effect: []

@@ -11,3 +11,17 @@ completer:
     - "importChip"
     - "importProtector"
     - "importFortifier"
+  easyChipOpenMui:
+    - "<玩家名字>"
+  easyChipImportChip:
+    - "<等级>"
+  easyChipImportProtector:
+    - "<名字>"
+  easyChipImportFortifier:
+    - "<名字>"
+  easyChipImportChip$:
+    - "<数量>"
+  easyChipImportProtector$:
+    - "<数量>"
+  easyChipImportFortifier$:
+    - "<数量>"

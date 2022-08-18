@@ -20,7 +20,7 @@ public class ImportChipExecutor extends ExecutorBase {
 
     @Override
     protected void run() {
-        if (args.length != 1) {
+        if (args.length != 2) {
             return;
         }
 
@@ -29,10 +29,20 @@ public class ImportChipExecutor extends ExecutorBase {
         }
         Player player = (Player) sender;
 
+
+
         try {
             Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
             MessageUtil.invalidArgument(player, args[0]);
+            return;
+        }
+
+        int amount;
+        try {
+           amount= Integer.parseInt(args[1]);
+        } catch (NumberFormatException e) {
+            MessageUtil.invalidArgument(player, args[1]);
             return;
         }
 
@@ -52,7 +62,7 @@ public class ImportChipExecutor extends ExecutorBase {
             return;
         }
 
-        PlayerUtil.addItem(player, itemStack, itemStack.getAmount());
+        PlayerUtil.addItem(player, itemStack, itemStack.getAmount()*amount);
 
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.importChip");

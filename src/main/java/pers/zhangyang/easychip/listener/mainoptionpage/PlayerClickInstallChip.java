@@ -107,6 +107,20 @@ public class PlayerClickInstallChip implements Listener {
         itemMeta.setLore(lore);
         for (AttributeModifier attributeModifier : chip.getAttributeModifierAttributeMap().keySet()) {
             Attribute attribute = chip.getAttributeModifierAttributeMap().get(attributeModifier);
+
+            boolean conflict=false;
+            if (itemMeta.getAttributeModifiers()!=null) {
+                for (Attribute aa : itemMeta.getAttributeModifiers().keySet()) {
+                    for (AttributeModifier aaa : itemMeta.getAttributeModifiers().get(aa)) {
+                        if (aaa.getUniqueId().equals(attributeModifier.getUniqueId())) {
+            conflict=true;
+                        }
+                    }
+                }
+            }
+            if (conflict){
+                continue;
+            }
             itemMeta.addAttributeModifier(attribute, attributeModifier);
         }
         persistentDataContainer.set(new NamespacedKey(EasyChip.instance, "chip"), PersistentDataType.INTEGER, chip.getLevel());

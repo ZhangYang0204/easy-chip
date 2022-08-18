@@ -54,20 +54,20 @@ public class PlayerInputAfterClickMainOptionPageTakeFortifier extends FiniteInpu
         }
 
         //检查配置文件是不是有这个强化剂
-        Fortifier chip = null;
+        Fortifier fortifier = null;
         for (Fortifier c : FortifierYaml.INSTANCE.listFortifier()) {
             if (c.getItemStack().equals(ItemStackUtil.itemStackDeserialize(workStationMeta.getFortifierItemStack()))) {
-                chip = c;
+                fortifier = c;
                 break;
             }
         }
-        if (chip == null) {
+        if (fortifier == null) {
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notExistFortifierWhenTakeFortifier"));
             return;
         }
 
         //玩家是不是有空间
-        if (PlayerUtil.checkSpace(player, chip.getItemStack()) < chip.getItemStack().getAmount()) {
+        if (PlayerUtil.checkSpace(player, fortifier.getItemStack()) < fortifier.getItemStack().getAmount()*amount) {
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notEnoughSpaceWhenTakeFortifier"));
             return;
         }
@@ -81,8 +81,8 @@ public class PlayerInputAfterClickMainOptionPageTakeFortifier extends FiniteInpu
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notMoreFortifier"));
             return;
         }
-        ItemStack chipItemStack = chip.getItemStack();
-        PlayerUtil.addItem(player, chipItemStack, chipItemStack.getAmount());
+        ItemStack chipItemStack = fortifier.getItemStack();
+        PlayerUtil.addItem(player, chipItemStack, fortifier.getItemStack().getAmount()*amount);
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.takeFortifier"));
 
 

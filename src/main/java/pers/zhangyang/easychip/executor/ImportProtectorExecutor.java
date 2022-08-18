@@ -20,7 +20,7 @@ public class ImportProtectorExecutor extends ExecutorBase {
 
     @Override
     protected void run() {
-        if (args.length != 1) {
+        if (args.length != 2) {
             return;
         }
 
@@ -29,7 +29,13 @@ public class ImportProtectorExecutor extends ExecutorBase {
         }
         Player player = (Player) sender;
 
-
+        int amount;
+        try {
+            amount= Integer.parseInt(args[1]);
+        } catch (NumberFormatException e) {
+            MessageUtil.invalidArgument(player, args[1]);
+            return;
+        }
         Protector chip = ProtectorYaml.INSTANCE.getProtector("protector." + args[0]);
 
         if (chip == null) {
@@ -46,7 +52,7 @@ public class ImportProtectorExecutor extends ExecutorBase {
             return;
         }
 
-        PlayerUtil.addItem(player, itemStack, itemStack.getAmount());
+        PlayerUtil.addItem(player, itemStack, itemStack.getAmount()*amount);
 
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.importProtector");

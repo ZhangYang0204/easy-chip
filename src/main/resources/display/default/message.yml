@@ -25,9 +25,9 @@ message:
       - "&b&l/EasyChip openGui       打开Gui"
       - "&b&l/EasyChip openMui <玩家名字>       以指定玩家的身份打开Mui"
       - "&b&l/EasyChip generateRandomUuid       生成一份Uuid，后台也会发送消息（方便复制）"
-      - "&b&l/EasyChip importChip <等级>       导入芯片"
-      - "&b&l/EasyChip importFortifier <名字>       导入强化剂"
-      - "&b&l/EasyChip importProtector <名字>       导入保护剂"
+      - "&b&l/EasyChip importChip <等级> <数量>       导入芯片"
+      - "&b&l/EasyChip importFortifier <名字> <数量>       导入强化剂"
+      - "&b&l/EasyChip importProtector <名字> <数量>       导入保护剂"
     notifyVersion:
       - "&b&lEasyChip的当前版本是 &f{current_version}，&b&l最新版本是 &f{latest_version}。"
     enablePlugin:
