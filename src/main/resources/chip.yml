@@ -2,8 +2,13 @@ chip:
   #这里必须是整数，代表芯片等级，一个物品只能安装一个芯片，可以安装在任何物品上，芯片是判断数量的
   #如果下面的itemStack的数量是5，那么数量不是5的相同物品的物品堆不叫作芯片
   #如果原来有的芯片被删了，那么需要你去输入指令修正数据库的异常数据，然后如果芯片已经被附加到了物品上，但是这个芯片已经被删了，那么这个物品在下一次卸载芯片的时候，会自动删除相关隐藏内容
+  # here must be an integer, representing the chip level, an item can only install a chip, can be installed on any item, the chip is judged by the number of
+  #If the number of itemStack below is 5, then the number of items that are not 5 of the same item stack is not called chips
+  #If the original chip is deleted, then you need to enter instructions to correct the abnormal data in the database, and then if the chip has been attached to the item, but the chip has been deleted, then the item will automatically delete the relevant hidden content when the chip is uninstalled next time
+
   1:
     #芯片物品，如果此项不填，则跳过1
+    #Chip items, if this item is not filled, skip 1
     itemStack:
       ==: org.bukkit.inventory.ItemStack
       v: 3105
@@ -15,6 +20,7 @@ chip:
           - '{"extra":[{"text":"1级芯片"}],"text":""}'
 
     #安装芯片会给物品增加到描述，卸载后会消失
+    # Installing the chip will add to the description of the item and will disappear after uninstallation
     additionalLore:
       - "&c已安装强化芯片，芯片等级[1]"
 
@@ -29,12 +35,26 @@ chip:
     #卸载芯片的原理是根据下面的属性修饰符的Uuid删除该物品上的属性修饰符，同时从lore中删除和additionalLore中相同的字符串，所以Uuid必须唯一！！！
     #判断是否安装过芯片的原理是判断是否含有安装时添加的隐藏信息
     #如果一个武器出现了2个相同UUID的属性修饰，则会跳过其中一个
+    #The effect of assembling this chip, in the format attribute:UUID:attribute modifier name:attribute modifier value:attribute modifier action:attribute modifier slot
+    #The name of the attribute modifier can be arbitrarily named
+    # of the slots optional, not selected by default means in any slot is in effect, attribute modifier name is their own random name, attribute modifier value and attribute modifier operation are related, where the operation determines how the value is added to the calculation
+    #attributes are here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/Attribute.html
+    #modifier operations are here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/AttributeModifier.Operation.html
+    #slots are here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/EquipmentSlot.html
+    #UUUID is formatted, it is recommended to generate randomly with the instructions of the plug-in, the randomly generated UUID is theoretically unique in the world without considering the modification, UUID must be unique!!!
+    The principle of #InstallChip is to add the following property modifier and extra description to the properties of the target item, the extra description will be added at the end and a hidden message will be added to the item
+    #The principle of uninstalling a chip is to remove the attribute modifier on the item according to the Uuid of the attribute modifier below, and to remove the same string from the lore as in additionalLore, so the Uuid must be unique!!!
+    The principle of #determining if a chip has been installed is to determine if it contains the hidden information added during installation
+    #If a weapon appears with 2 attribute modifiers with the same UUID, one of them will be skipped
     effect:
       #代表增加攻击属性，属性修饰符的名字是攻击加成，值是1，值是作用方式是添加，意思就是攻击伤害加1，当装备拿在手中的时候生效，填错的项会自动略过effect
+      # represents an increase in attack attributes, the name of the attribute modifier is attack plus, the value is 1, the value is the way the effect is added, meaning that the attack damage plus 1, when the equipment is held in the hands of the effective, fill in the wrong item will automatically omit theeffect
       - "GENERIC_ATTACK_DAMAGE:123e4567-e89b-12d3-a456-426655440001:攻击加成:1:ADD_NUMBER:HAND"
       #代表增加攻击属性，属性修饰符的名字是攻击加成，值是0.2，值是作用方式是增加百分比，意思就是攻击伤害变为原来的1+0.2倍，当装备戴在头上的时候生效，填错的项会自动略过effect
+      # represents an increase in attack attributes, the name of the attribute modifier is the attack bonus, the value is 0.2, the value is the role of the way is to increase the percentage, meaning that the attack damage becomes the original 1 + 0.2 times, when the equipment is worn on the head takes effect, fill in the wrong item will automatically omit theeffect
       - "GENERIC_ATTACK_DAMAGE:123e4567-e89b-12d3-a456-426655440002:攻击加成:0.2:MULTIPLY_SCALAR_1:HEAD"
       #代表增加攻击属性，属性修饰符的名字是攻击加成，值是0.2，值是作用方式是增加百分比，意思就是攻击伤害变为原来的2.2倍，当装备拿在手中的时候生效，填错的项会自动略过effect
+      # represents an increase in attack attributes, the name of the attribute modifier is attack bonus, the value is 0.2, the value is the role of the way is to increase the percentage, meaning that the attack damage becomes 2.2 times the original, when the equipment is held in the hands of the effective, fill in the wrong item will automatically omit theeffect
       - "GENERIC_ATTACK_DAMAGE:123e4567-e89b-12d3-a456-426655440003:攻击加成:2.2:MULTIPLY_SCALAR_1:HAND"
   2:
     itemStack:

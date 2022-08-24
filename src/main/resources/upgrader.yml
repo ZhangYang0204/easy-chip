@@ -1,17 +1,24 @@
 upgrader:
   #1代表给1级芯片升级的设置，必须是整数，只有含有下一个等级的芯片才能升级，必须是连续的，不能跳级，如果这个不填，无法强化对应的芯片
+  #1 represents the setting to upgrade the level 1 chip, must be an integer, only the chip containing the next level can be upgraded, must be consecutive, can not jump levels, if this is not filled, can not strengthen the corresponding chip
   1:
     #是否开启失败损毁，开启损毁意味着强化失败芯片会消失，如果开启损毁，掉级选项将被无视，必填，否则跳过1
+    #Whether to turn on the failure damage, turn on the damage means the reinforcement failure chip will disappear, if turn on the damage, the drop option will be ignored, required, otherwise skip 1
     enableFailureDamage: false
     #是否开启失败掉级，开启损毁意味着强化失败芯片会掉级，必填，否则跳过1
+    #Whether to turn on the failure drop, turn on the damage means the reinforcement failure chip will drop the level, required, otherwise skip 1
     enableFailureDowngrade: false
 
     #成功强化指令哪些指令，使commandSender以某些身份执行代码,cmdList的String格式需要为方式:命令，方式有console、self、operator，不符合的将跳过
     #命令无需加/，支持Papi变量
+    # successfully strengthen the command which command, so that the commandSender in some capacity to execute the code, cmdList String format needs to be the way: command, the way there are console, self, operator, does not match will be skipped
+    #Commands do not need to add /, support Papi variables
     successCommand:
       - "console:say &a&l玩家%player_name%强化刚刚强化0级芯片成功"
     #成功强化指令哪些指令，使commandSender以某些身份执行代码,cmdList的String格式需要为方式:命令，方式有console、self、operator，不符合的将跳过
     #命令无需加/，支持Papi变量
+    # successfully strengthen the command which command, so that the commandSender in some capacity to execute the code, cmdList String format needs to be the way: command, the way there are console, self, operator, does not match will be skipped
+    #Commands do not need to add /, support Papi variables
     failureCommand:
       - "console:say &4&l玩家%player_name%强化刚刚强化0级芯片失败"
   2:

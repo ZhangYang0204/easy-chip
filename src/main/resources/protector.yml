@@ -3,8 +3,10 @@ protector:
     protectSetting:
       1:
         #最多给0级芯片放置多少个小保护剂，，必须是大于等于0，不填或填错跳过1的选项
+        # maximum to the level 0 chip placed how many small protective agent,, must be greater than or equal to 0, do not fill or fill in the wrong skip 1 option
         slotSize: 1
         #每个小强化剂提供多少保护概率，必须是大于等于0小于等于1，不填或填错跳过1的选项，必须填成小数形式
+        # Each small reinforcer provides how much protection probability, must be greater than or equal to 0 less than or equal to 1, do not fill or fill in the wrong option to skip 1, must be filled in the decimal form
         probability: 1.0
       2:
         slotSize: 1
@@ -13,6 +15,7 @@ protector:
         slotSize: 1
         probability: 1.0
     #这项必填，不填跳过小保护剂，判断数量
+    # This is required, do not fill in the skip small protective agent, determine the number of
     itemStack:
       ==: org.bukkit.inventory.ItemStack
       v: 3105

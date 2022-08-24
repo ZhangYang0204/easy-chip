@@ -34,6 +34,10 @@
   </build>
   <repositories>
     <repository>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+    </repository>
+    <repository>
       <id>easy-library-repository</id>
       <url>https://zhangyang0204.github.io/easy-library/repository</url>
     </repository>
