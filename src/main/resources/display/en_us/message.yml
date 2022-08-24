@@ -51,6 +51,8 @@ message:
       - "&c&l no item in main hand"
     notOnline:
       - "&c&l player is not online"
+    notPlayer:
+      - "&C&lonly player can do this"
 
     howToDepositChip:
       - "&B&lEnter the level of the chip to deposit, enter &F to cancel &B&l to cancel"

@@ -51,7 +51,8 @@ message:
       - "&c&l主手没有物品"
     notOnline:
       - "&c&l玩家不在线"
-
+    notPlayer:
+      - "&C&l只有玩家可以这么做"
     howToDepositChip:
       - "&B&l输入芯片的等级存入，输入&F取消&B&l取消"
     howToDepositFortifier:
