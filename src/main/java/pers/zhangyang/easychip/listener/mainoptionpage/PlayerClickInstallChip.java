@@ -36,7 +36,7 @@ import java.util.List;
 
 @EventListener
 public class PlayerClickInstallChip implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {24},closeGui = false)
+    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {24},closeGui = false,refreshGui = true)
     public void on(InventoryClickEvent event) {
 
         Player player = (Player) event.getWhoClicked();

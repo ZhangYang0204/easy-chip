@@ -19,7 +19,7 @@ import pers.zhangyang.easylibrary.util.TransactionInvocationHandler;
 
 @EventListener
 public class PlayerClickDepositItemStack implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {22},closeGui = false)
+    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {22},closeGui = false,refreshGui = true)
     public void on(InventoryClickEvent event) {
 
         Player player = (Player) event.getWhoClicked();

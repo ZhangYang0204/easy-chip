@@ -20,7 +20,7 @@ import pers.zhangyang.easylibrary.util.TransactionInvocationHandler;
 
 @EventListener
 public class PlayerClickTakeChip implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {29},closeGui = false)
+    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {29},closeGui = false,refreshGui = true)
     public void on(InventoryClickEvent event) {
 
         Player player = (Player) event.getWhoClicked();
