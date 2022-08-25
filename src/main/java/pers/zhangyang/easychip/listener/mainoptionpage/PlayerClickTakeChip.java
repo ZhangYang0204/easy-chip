@@ -20,7 +20,7 @@ import pers.zhangyang.easylibrary.util.TransactionInvocationHandler;
 
 @EventListener
 public class PlayerClickTakeChip implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {29})
+    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {29},closeGui = false)
     public void on(InventoryClickEvent event) {
 
         Player player = (Player) event.getWhoClicked();
@@ -70,7 +70,6 @@ public class PlayerClickTakeChip implements Listener {
         PlayerUtil.addItem(player, chip.getItemStack(), chip.getItemStack().getAmount());
 
 
-        mainOptionPage.refresh();
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.takeChip"));
     }
 }

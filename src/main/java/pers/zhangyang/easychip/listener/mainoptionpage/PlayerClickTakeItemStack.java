@@ -19,7 +19,7 @@ import pers.zhangyang.easylibrary.util.TransactionInvocationHandler;
 
 @EventListener
 public class PlayerClickTakeItemStack implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {31})
+    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {31},closeGui = false)
     public void on(InventoryClickEvent event) {
 
         Player player = (Player) event.getWhoClicked();
@@ -52,7 +52,6 @@ public class PlayerClickTakeItemStack implements Listener {
 
         PlayerUtil.addItem(player, itemStack, 1);
 
-        mainOptionPage.refresh();
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.takeItemStack"));
     }
 }

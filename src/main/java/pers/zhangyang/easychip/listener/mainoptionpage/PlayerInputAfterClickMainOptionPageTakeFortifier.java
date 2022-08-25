@@ -67,7 +67,7 @@ public class PlayerInputAfterClickMainOptionPageTakeFortifier extends FiniteInpu
         }
 
         //玩家是不是有空间
-        if (PlayerUtil.checkSpace(player, fortifier.getItemStack()) < fortifier.getItemStack().getAmount()*amount) {
+        if (PlayerUtil.checkSpace(player, fortifier.getItemStack()) < fortifier.getItemStack().getAmount() * amount) {
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notEnoughSpaceWhenTakeFortifier"));
             return;
         }
@@ -82,7 +82,7 @@ public class PlayerInputAfterClickMainOptionPageTakeFortifier extends FiniteInpu
             return;
         }
         ItemStack chipItemStack = fortifier.getItemStack();
-        PlayerUtil.addItem(player, chipItemStack, fortifier.getItemStack().getAmount()*amount);
+        PlayerUtil.addItem(player, chipItemStack, fortifier.getItemStack().getAmount() * amount);
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.takeFortifier"));
 
 

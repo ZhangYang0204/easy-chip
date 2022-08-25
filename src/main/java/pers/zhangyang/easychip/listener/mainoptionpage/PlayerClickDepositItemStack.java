@@ -19,7 +19,7 @@ import pers.zhangyang.easylibrary.util.TransactionInvocationHandler;
 
 @EventListener
 public class PlayerClickDepositItemStack implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {22})
+    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {22},closeGui = false)
     public void on(InventoryClickEvent event) {
 
         Player player = (Player) event.getWhoClicked();
@@ -42,8 +42,6 @@ public class PlayerClickDepositItemStack implements Listener {
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.duplicateItemStack"));
             return;
         }
-        mainOptionPage.refresh();
-
         PlayerUtil.removeItem(player, itemStack, 1);
 
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.depositItemStack"));

@@ -36,7 +36,7 @@ import java.util.List;
 
 @EventListener
 public class PlayerClickInstallChip implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {24})
+    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {24},closeGui = false)
     public void on(InventoryClickEvent event) {
 
         Player player = (Player) event.getWhoClicked();
@@ -108,17 +108,17 @@ public class PlayerClickInstallChip implements Listener {
         for (AttributeModifier attributeModifier : chip.getAttributeModifierAttributeMap().keySet()) {
             Attribute attribute = chip.getAttributeModifierAttributeMap().get(attributeModifier);
 
-            boolean conflict=false;
-            if (itemMeta.getAttributeModifiers()!=null) {
+            boolean conflict = false;
+            if (itemMeta.getAttributeModifiers() != null) {
                 for (Attribute aa : itemMeta.getAttributeModifiers().keySet()) {
                     for (AttributeModifier aaa : itemMeta.getAttributeModifiers().get(aa)) {
                         if (aaa.getUniqueId().equals(attributeModifier.getUniqueId())) {
-            conflict=true;
+                            conflict = true;
                         }
                     }
                 }
             }
-            if (conflict){
+            if (conflict) {
                 continue;
             }
             itemMeta.addAttributeModifier(attribute, attributeModifier);
@@ -132,7 +132,6 @@ public class PlayerClickInstallChip implements Listener {
             return;
         }
 
-        mainOptionPage.refresh();
 
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.installChip"));
 

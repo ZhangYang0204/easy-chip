@@ -10,7 +10,7 @@ import pers.zhangyang.easylibrary.annotation.GuiDiscreteButtonHandler;
 @EventListener
 public class PlayerClickDepositChip implements Listener {
 
-    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {20})
+    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {20},closeGui = true)
     public void on(InventoryClickEvent event) {
 
         MainOptionPage mainOptionPage = (MainOptionPage) event.getInventory().getHolder();

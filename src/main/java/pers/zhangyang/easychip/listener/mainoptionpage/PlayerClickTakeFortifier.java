@@ -9,7 +9,7 @@ import pers.zhangyang.easylibrary.annotation.GuiDiscreteButtonHandler;
 
 @EventListener
 public class PlayerClickTakeFortifier implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {27})
+    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {27},closeGui = true)
     public void on(InventoryClickEvent event) {
 
         MainOptionPage mainOptionPage = (MainOptionPage) event.getInventory().getHolder();

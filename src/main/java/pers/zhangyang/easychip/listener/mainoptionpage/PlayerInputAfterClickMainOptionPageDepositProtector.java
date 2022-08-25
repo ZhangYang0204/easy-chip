@@ -55,7 +55,7 @@ public class PlayerInputAfterClickMainOptionPageDepositProtector extends FiniteI
         }
 
         //检查玩家是不是拥有这么多保护剂
-        if (PlayerUtil.computeItemHave(protector.getItemStack(), player) < amount*protector.getItemStack().getAmount()) {
+        if (PlayerUtil.computeItemHave(protector.getItemStack(), player) < amount * protector.getItemStack().getAmount()) {
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notEnoughProtector"));
             return;
         }
@@ -75,7 +75,7 @@ public class PlayerInputAfterClickMainOptionPageDepositProtector extends FiniteI
             e.printStackTrace();
             return;
         }
-        PlayerUtil.removeItem(player, protector.getItemStack(), amount*protector.getItemStack().getAmount());
+        PlayerUtil.removeItem(player, protector.getItemStack(), amount * protector.getItemStack().getAmount());
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.depositProtector");
         MessageUtil.sendMessageTo(player, list);
     }

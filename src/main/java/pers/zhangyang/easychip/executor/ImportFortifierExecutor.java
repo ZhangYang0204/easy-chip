@@ -30,7 +30,7 @@ public class ImportFortifierExecutor extends ExecutorBase {
         Player player = (Player) sender;
         int amount;
         try {
-            amount= Integer.parseInt(args[1]);
+            amount = Integer.parseInt(args[1]);
         } catch (NumberFormatException e) {
             MessageUtil.invalidArgument(player, args[0]);
             return;
@@ -46,13 +46,13 @@ public class ImportFortifierExecutor extends ExecutorBase {
 
 
         ItemStack itemStack = fortifier.getItemStack().clone();
-        if (PlayerUtil.checkSpace(player, itemStack) < itemStack.getAmount()*amount) {
+        if (PlayerUtil.checkSpace(player, itemStack) < itemStack.getAmount() * amount) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughSpaceWhenImportFortifier");
             MessageUtil.sendMessageTo(sender, list);
             return;
         }
 
-        PlayerUtil.addItem(player, itemStack, itemStack.getAmount()*amount);
+        PlayerUtil.addItem(player, itemStack, itemStack.getAmount() * amount);
 
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.importFortifier");

@@ -31,7 +31,7 @@ public class ImportProtectorExecutor extends ExecutorBase {
 
         int amount;
         try {
-            amount= Integer.parseInt(args[1]);
+            amount = Integer.parseInt(args[1]);
         } catch (NumberFormatException e) {
             MessageUtil.invalidArgument(player, args[1]);
             return;
@@ -46,13 +46,13 @@ public class ImportProtectorExecutor extends ExecutorBase {
 
 
         ItemStack itemStack = chip.getItemStack().clone();
-        if (PlayerUtil.checkSpace(player, itemStack) < itemStack.getAmount()*amount) {
+        if (PlayerUtil.checkSpace(player, itemStack) < itemStack.getAmount() * amount) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughSpaceWhenImportProtector");
             MessageUtil.sendMessageTo(sender, list);
             return;
         }
 
-        PlayerUtil.addItem(player, itemStack, itemStack.getAmount()*amount);
+        PlayerUtil.addItem(player, itemStack, itemStack.getAmount() * amount);
 
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.importProtector");

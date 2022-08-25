@@ -30,7 +30,6 @@ public class ImportChipExecutor extends ExecutorBase {
         Player player = (Player) sender;
 
 
-
         try {
             Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
@@ -40,7 +39,7 @@ public class ImportChipExecutor extends ExecutorBase {
 
         int amount;
         try {
-           amount= Integer.parseInt(args[1]);
+            amount = Integer.parseInt(args[1]);
         } catch (NumberFormatException e) {
             MessageUtil.invalidArgument(player, args[1]);
             return;
@@ -56,13 +55,13 @@ public class ImportChipExecutor extends ExecutorBase {
 
 
         ItemStack itemStack = chip.getItemStack().clone();
-        if (PlayerUtil.checkSpace(player, itemStack) < itemStack.getAmount()*amount) {
+        if (PlayerUtil.checkSpace(player, itemStack) < itemStack.getAmount() * amount) {
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughSpaceWhenImportChip");
             MessageUtil.sendMessageTo(sender, list);
             return;
         }
 
-        PlayerUtil.addItem(player, itemStack, itemStack.getAmount()*amount);
+        PlayerUtil.addItem(player, itemStack, itemStack.getAmount() * amount);
 
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.importChip");

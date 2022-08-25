@@ -1,6 +1,5 @@
 package pers.zhangyang.easychip.domain;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -12,7 +11,7 @@ public class Upgrader {
     private List<String> successCommand;
     private List<String> failureCommand;
 
-    public Upgrader(@NotNull boolean enableFailureDamage, boolean enableFailureDowngrade, int level) {
+    public Upgrader(boolean enableFailureDamage, boolean enableFailureDowngrade, int level) {
         this.level = level;
         this.enableFailureDamage = enableFailureDamage;
         this.enableFailureDowngrade = enableFailureDowngrade;

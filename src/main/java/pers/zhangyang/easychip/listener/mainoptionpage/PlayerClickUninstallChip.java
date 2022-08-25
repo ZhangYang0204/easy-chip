@@ -35,7 +35,7 @@ import java.util.List;
 
 @EventListener
 public class PlayerClickUninstallChip implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {33})
+    @GuiDiscreteButtonHandler(guiPage = MainOptionPage.class, slot = {33},closeGui = false)
     public void on(InventoryClickEvent event) {
 
         Player player = (Player) event.getWhoClicked();
@@ -113,7 +113,6 @@ public class PlayerClickUninstallChip implements Listener {
         }
 
 
-        mainOptionPage.refresh();
         MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.uninstallChip"));
 
 

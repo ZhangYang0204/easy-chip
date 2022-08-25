@@ -57,7 +57,7 @@ public class PlayerInputAfterClickMainOptionPageDepositFortifier extends FiniteI
         }
 
         //检查玩家是不是拥有这么多强化剂
-        if (PlayerUtil.computeItemHave(fortifier.getItemStack(), player) < amount*fortifier.getItemStack().getAmount()) {
+        if (PlayerUtil.computeItemHave(fortifier.getItemStack(), player) < amount * fortifier.getItemStack().getAmount()) {
             MessageUtil.sendMessageTo(player, MessageYaml.INSTANCE.getStringList("message.chat.notEnoughFortifier"));
             return;
         }
@@ -77,7 +77,7 @@ public class PlayerInputAfterClickMainOptionPageDepositFortifier extends FiniteI
             e.printStackTrace();
             return;
         }
-        PlayerUtil.removeItem(player, fortifier.getItemStack(), amount*fortifier.getItemStack().getAmount());
+        PlayerUtil.removeItem(player, fortifier.getItemStack(), amount * fortifier.getItemStack().getAmount());
 
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.depositFortifier");
