@@ -42,9 +42,9 @@ chip:
     #modifier operations are here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/attribute/AttributeModifier.Operation.html
     #slots are here https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/EquipmentSlot.html
     #UUUID is formatted, it is recommended to generate randomly with the instructions of the plug-in, the randomly generated UUID is theoretically unique in the world without considering the modification, UUID must be unique!!!
-    The principle of #InstallChip is to add the following property modifier and extra description to the properties of the target item, the extra description will be added at the end and a hidden message will be added to the item
+    #The principle of InstallChip is to add the following property modifier and extra description to the properties of the target item, the extra description will be added at the end and a hidden message will be added to the item
     #The principle of uninstalling a chip is to remove the attribute modifier on the item according to the Uuid of the attribute modifier below, and to remove the same string from the lore as in additionalLore, so the Uuid must be unique!!!
-    The principle of #determining if a chip has been installed is to determine if it contains the hidden information added during installation
+    #The principle of determining if a chip has been installed is to determine if it contains the hidden information added during installation
     #If a weapon appears with 2 attribute modifiers with the same UUID, one of them will be skipped
     effect:
       #代表增加攻击属性，属性修饰符的名字是攻击加成，值是1，值是作用方式是添加，意思就是攻击伤害加1，当装备拿在手中的时候生效，填错的项会自动略过effect
